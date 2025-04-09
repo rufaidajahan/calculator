@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/daisyui@2.47.0/dist/full.js"></script>
+</head>
+
+<body class="bg-pink-100 flex justify-center items-center min-h-screen">
+
+  <div class="relative w-100">
+
+    <img src="witch.png" alt="Witch" class="absolute top-[20px] left-[-10px] w-30 h-20" />
+
+    <div class="calculator-card w-full p-4 rounded-lg shadow-xl bg-[url('bg.jpg')] bg-cover bg-center mt-20">
+    
+      <input type="text" id="display" class="w-full p-5 text-3xl text-white text-right rounded-lg border border-pink-500 mb-4" disabled />
+      
+      <div class="grid grid-cols-4 gap-4">
+        <button class="btn bg-pink-300 text-white text-xl border p-4 hover:bg-pink-400 active:bg-pink-500" onclick="append(7)">7</button>
+        <button class="btn bg-pink-300 text-white text-xl border p-4 hover:bg-pink-400 active:bg-pink-500" onclick="append(8)">8</button>
+        <button class="btn bg-pink-300 text-white text-xl border p-4 hover:bg-pink-400 active:bg-pink-500" onclick="append(9)">9</button>
+        <button class="btn bg-pink-400 text-white text-xl border p-4 hover:bg-pink-500 active:bg-pink-600" onclick="append('+')">+</button>
+        
+        <button class="btn bg-pink-300 text-white text-xl border p-4 hover:bg-pink-400 active:bg-pink-500" onclick="append(4)">4</button>
+        <button class="btn bg-pink-300 text-white text-xl border p-4 hover:bg-pink-400 active:bg-pink-500" onclick="append(5)">5</button>
+        <button class="btn bg-pink-300 text-white text-xl border p-4 hover:bg-pink-400 active:bg-pink-500" onclick="append(6)">6</button>
+        <button class="btn bg-pink-400 text-white text-xl border p-4 hover:bg-pink-500 active:bg-pink-600" onclick="append('-')">-</button>
+        
+        <button class="btn bg-pink-300 text-white text-xl border p-4 hover:bg-pink-400 active:bg-pink-500" onclick="append(1)">1</button>
+        <button class="btn bg-pink-300 text-white text-xl border p-4 hover:bg-pink-400 active:bg-pink-500" onclick="append(2)">2</button>
+        <button class="btn bg-pink-300 text-white text-xl border p-4 hover:bg-pink-400 active:bg-pink-500" onclick="append(3)">3</button>
+        <button class="btn bg-pink-400 text-white text-xl border p-4 hover:bg-pink-500 active:bg-pink-600" onclick="append('*')">*</button>
+        
+        <button class="btn bg-pink-300 text-white text-xl border p-4 hover:bg-pink-400 active:bg-pink-500" onclick="append(0)">0</button>
+        <button id="clearBtn" class="btn bg-pink-500 text-white text-xl border p-4 hover:bg-pink-600 active:bg-pink-700">C</button>
+        <button class="btn bg-pink-600 text-white text-xl border p-4 hover:bg-pink-700 active:bg-pink-800" onclick="calculate()">=</button>
+        <button class="btn bg-pink-400 text-white text-xl border p-4 hover:bg-pink-500 active:bg-pink-600" onclick="append('/')">/</button>
+      </div>
+    </div>
+  </div>  
+  <script>
+    const display = document.getElementById("display");
+
+const clearButton = document.getElementById("clearBtn");
+
+clearButton.addEventListener("click", clear);
+
+function append(input) {
+    display.value += input;
+}
+
+function clear() {
+    console.log("Clear function triggered");  
+    display.value = ""; 
+}
+
+function calculate(){
+    display.value = eval(display.value);
+}
+
+  </script>
+</body>
+</html>
